@@ -74,6 +74,10 @@ MAX_JOBS=1 pip install -e . --no-build-isolation -vvv
 
 这些改动不是 sm75 编译通过的核心，但能让本地反复编译更稳定。
 
+### CMakeLists.txt
+
+- 默认开启 `CMAKE_EXPORT_COMPILE_COMMANDS`，使 CMake/Ninja 在构建目录中生成 `compile_commands.json`，方便 clangd、IDE 和编译参数排查。
+
 ### setup.py
 
 - 新增 `VLLM_BUILD_TEMP` 支持，用于固定 CMake 构建目录。
@@ -113,4 +117,3 @@ vllm serve <model> --dtype=half
 - `build/`
 - `dist/`
 - `*.egg-info/`
-
